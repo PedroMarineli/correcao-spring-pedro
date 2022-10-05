@@ -1,4 +1,4 @@
-package esllenlicurgo.models;
+package pedromarineli.models;
 
 import javax.persistence.Entity;
 import javax.persistence.Table;

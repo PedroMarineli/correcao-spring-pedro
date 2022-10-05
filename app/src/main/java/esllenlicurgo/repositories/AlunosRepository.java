@@ -1,7 +1,7 @@
-package esllenlicurgo.repositories;
+package pedromarineli.repositories;
 
 import org.springframework.data.repository.CrudRepository;
-import esllenlicurgo.models.Aluno;
+import pedromarineli.models.Aluno;
 
 public interface AlunosRepository extends CrudRepository<Aluno, Integer> {
 
