@@ -10,19 +10,19 @@
     </head>
     <body>
         <main class="container">
-            <h1>Editar Aluno</h1>
-            <form action="/alunos/update" method="post">
-                <input type="hidden" value="${aluno.id}" name="id" />
-                <div class="form-group">
-                    <label for="nome">Nome</label>
-                    <input class="form-control" type="text" name="nome"  value="${aluno.nome}"placeholder="Nome do Gênero" />
-                </div>
-                <div class="form-group">
-                    <label for="idade">Idade</label>
-                    <input class="form-control" type="number" name="idade" />
-                </div>
-                <br />
-                <a class="btn btn-primary" href="/alunos/list">Voltar</a>
+  88888888888/h1>
+  88888888888unos/update" method="post">
+  88888888888hidden" value="${aluno.id}" name="id" />
+  88888888888orm-group">
+  88888888888r="nome">Nome</label>
+  88888888888ass="form-control" type="text" name="nome"  value="${aluno.nome}"placeholder="Nome do Gênero" />
+  88888888888
+  88888888888orm-group">
+  88888888888r="idade">Idade</label>
+  88888888888ass="form-control" type="number" name="idade" />
+  88888888888
+  88888888888
+  88888888888 btn-primary" href="/alunos/list">Voltar</a>
                 <button class="btn btn-success" type="submit">Salvar</button>
             </form>
         </main>

@@ -40,7 +40,7 @@ public class AlunosController {
 
     @RequestMapping("update/{id}")
     public String update(Model model, @PathVariable int id) {
-        Optional<Aluno> Aluno aluno = alunosRepo.findById(id);
+        Optional<Aluno> aluno = alunosRepo.findById(id);
         model.addAttribute("aluno", aluno.get());
         return "update";
     }
