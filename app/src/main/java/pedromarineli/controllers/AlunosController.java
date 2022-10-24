@@ -55,6 +55,7 @@ public class AlunosController {
             Optional<Aluno> aluno = alunosRepo.findById(id);
             aluno.get().setNome(nome);
             aluno.get().setIdade(idade);
+            aluno.get().setCurso(curso);
             alunosRepo.save(aluno.get());
             return "redirect:/alunos/list";
     }

@@ -9,18 +9,18 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import pedromarineli.models.Aluno;
-import pedromarineli.repositories.AlunosRepository;
+import pedromarineli.models.Professor;
+import pedromarineli.repositories.ProfessorRepository;
 
 @Controller
 @RequestMapping("/professor")
 public class ProfessorController {
     @Autowired
-    private AlunosRepository alunosRepo;
+    private ProfessorRepository professorRepo;
 
     @RequestMapping("list")
     public String list(Model model) {
-        model.addAttribute("alunos", this.alunosRepo.findAll());
+        model.addAttribute("professor", this.professorRepo.findAll());
         return "list";
     }
 
@@ -30,46 +30,44 @@ public class ProfessorController {
     }
 
     @RequestMapping(value = "insert", method = RequestMethod.POST)
-    public String insert(@RequestParam("nome") String nome, @RequestParam("idade") int idade, @RequestParam("curso") String curso) {
-        Aluno aluno = new Aluno();
-        aluno.setNome(nome);
-        aluno.setIdade(idade);
-        aluno.setCurso(curso);
-        alunosRepo.save(aluno);
-        return "redirect:/alunos/list";
+    public String insert(@RequestParam("nome") String nome, @RequestParam("componente") String componente) {
+        Professor professor = new Professor();
+        professor.setNome(nome);
+        professor.setComponente(componente);
+        professorRepo.save(professor);
+        return "redirect:/professor/list";
     }
 
     @RequestMapping("update/{id}")
     public String update(Model model, @PathVariable int id) {
-        Optional<Aluno> aluno = alunosRepo.findById(id);
-        model.addAttribute("aluno", aluno.get());
-        return "/alunos/update";
+        Optional<Professor> professor = professorRepo.findById(id);
+        model.addAttribute("professor", professor.get());
+        return "/professor/update";
     }
 
     @RequestMapping(value = "update", method = RequestMethod.POST)
     public String saveUpdate(
         @RequestParam("nome") String nome,
-        @RequestParam("idade") int idade,
-        @RequestParam("curso") String curso,
+        @RequestParam("componente") String componente,
         @RequestParam("id") int id) {
-            Optional<Aluno> aluno = alunosRepo.findById(id);
-            aluno.get().setNome(nome);
-            aluno.get().setIdade(idade);
-            alunosRepo.save(aluno.get());
-            return "redirect:/alunos/list";
+            Optional<Professor> professor = professorRepo.findById(id);
+            professor.get().setNome(nome);
+            professor.get().setComponente(componente);
+            professorRepo.save(professor.get());
+            return "redirect:/professor/list";
     }
 
     @RequestMapping("delete/{id}")
     public String delete(Model model, @PathVariable int id) {
-        Optional<Aluno> aluno = alunosRepo.findById(id);
-        model.addAttribute("aluno", aluno.get());
-        return "/alunos/delete";
+        Optional<Professor> professor = professorRepo.findById(id);
+        model.addAttribute("professor", professor.get());
+        return "/professor/delete";
     }
 
     @RequestMapping(value = "delete", method = RequestMethod.POST)
     public String saveDelete(@RequestParam("id") int id) {
-        alunosRepo.deleteById(id);
+        professorRepo.deleteById(id);
 
-        return "redirect:/alunos/list";
+        return "redirect:/professor/list";
     }
 }

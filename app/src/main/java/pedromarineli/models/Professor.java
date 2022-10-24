@@ -13,7 +13,7 @@ public class Professor {
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     private int id;
     private String nome;
-    private int conponente;
+    private String componente;
     public void setId(int id) {
         this.id = id;
     }
@@ -26,10 +26,10 @@ public class Professor {
     public String getNome() {
         return nome;
     }
-    public void setComponete(String componente) {
+    public void setComponente(String componente) {
         this.componente = componente;
     }
-    public int getComponente() {
+    public String getComponente() {
         return componente;
     }
 }
